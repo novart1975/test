@@ -14,6 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
 <style>
 :root{
   --paper:#F5F6F4; --paper-2:#E9EDF2; --white:#fff;
@@ -233,6 +235,13 @@ html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email],html[dir=rtl] inpu
 .map{width:100%;min-height:380px;height:100%;border:1px solid var(--line);background:var(--paper-2)}
 @media (max-width:880px){.contact-grid{grid-template-columns:1fr}}
 
+.ct-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2rem}
+.ct-actions .btn i{font-size:1.25rem}
+.follow{display:flex;align-items:center;gap:.9rem;font-size:.9375rem}
+.social{display:flex;gap:.6rem}
+.social a{width:44px;height:44px;display:grid;place-items:center;border:1.5px solid var(--ink);border-radius:50%;color:var(--ink);font-size:1.15rem;text-decoration:none;transition:background-color .15s,color .15s}
+.social a:hover{background:var(--ink);color:#fff}
+
 /* footer */
 .site-footer{background:var(--ink);color:#B9C1D6;padding:3rem 0 2rem;font-size:.9375rem}
 .site-footer .brand{color:#fff}
@@ -241,10 +250,12 @@ html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email],html[dir=rtl] inpu
 .foot-nav{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
 .site-footer a{color:#fff;text-decoration:none}
 .site-footer a:hover{text-decoration:underline}
+.site-footer .social a{border-color:rgba(255,255,255,.35);color:#fff}
+.site-footer .social a:hover{background:var(--tape);border-color:var(--tape);color:var(--ink);text-decoration:none}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.15);font-size:.875rem}
 
 .wa-float{position:fixed;bottom:1.25rem;inset-inline-end:1.25rem;z-index:40;width:56px;height:56px;border-radius:50%;background:#1FAF55;display:grid;place-items:center;box-shadow:0 6px 18px rgba(20,33,61,.28)}
-.wa-float svg{width:26px;height:26px;fill:#fff}
+.wa-float i{font-size:30px;color:#fff}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -589,7 +600,16 @@ html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email],html[dir=rtl] inpu
           <div><dt data-i18n="ct.email"></dt><dd><a data-c="email" href="#"></a></dd></div>
           <div><dt data-i18n="ct.hours"></dt><dd data-i18n="ct.hoursV"></dd></div>
         </dl>
-        <a class="btn btn-primary" data-c="wa" href="#" target="_blank" rel="noopener" data-i18n="ct.wa"></a>
+        <div class="ct-actions">
+          <a class="btn btn-primary" data-c="wa" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span data-i18n="ct.wa"></span></a>
+          <div class="follow">
+            <span class="muted" data-i18n="ct.follow"></span>
+            <div class="social">
+              <a data-c="fb" href="#" target="_blank" rel="noopener" data-i18n-aria="so.fb"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+              <a data-c="ig" href="#" target="_blank" rel="noopener" data-i18n-aria="so.ig"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
       <iframe class="map" data-i18n-title="ct.map" src="https://maps.google.com/maps?q=Amman%2C%20Jordan&z=12&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -610,6 +630,11 @@ html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email],html[dir=rtl] inpu
         <a href="#apply" data-i18n="nav.apply"></a>
         <a href="#contact" data-i18n="nav.contact"></a>
       </nav>
+      <div class="social">
+        <a data-c="wa" href="#" target="_blank" rel="noopener" data-i18n-aria="so.wa"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+        <a data-c="fb" href="#" target="_blank" rel="noopener" data-i18n-aria="so.fb"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a data-c="ig" href="#" target="_blank" rel="noopener" data-i18n-aria="so.ig"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+      </div>
     </div>
     <div class="foot-bottom">
       <span>© <span id="year"></span> <span data-i18n="brand.name"></span>. <span data-i18n="ft.rights"></span></span>
@@ -619,7 +644,7 @@ html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email],html[dir=rtl] inpu
 </footer>
 
 <a class="wa-float" data-c="wa" href="#" target="_blank" rel="noopener" data-i18n-aria="wa.float">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-5 4V5a1 1 0 0 1 1-1Z"/></svg>
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
 </a>
 
 <script>
@@ -631,10 +656,12 @@ html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email],html[dir=rtl] inpu
    ===================================================== */
 const CONFIG = {
   GAS_URL: '',                    // رابط Google Apps Script Web App (ينتهي بـ /exec) — فاضي = وضع تجريبي
-  PHONE: '+962 6 500 0000',
-  MOBILE: '+962 79 000 0000',
-  WHATSAPP: '962790000000',       // بدون + وبدون صفر
-  EMAIL: 'info@aymanalnaser.com'
+  PHONE: '',                      // هاتف أرضي (فاضي = بيختفي السطر)
+  MOBILE: '+962 79 000 145',
+  WHATSAPP: '96279000145',        // بدون + وبدون 00
+  EMAIL: 'info@aymanalnaser.com',
+  FACEBOOK: 'https://www.facebook.com/ayman.alnasser',
+  INSTAGRAM: 'https://www.instagram.com/ayman.alnasser'   // ⚠️ مؤقت، بدّله بالحساب الصحيح
 };
 
 /* المعارض القادمة — بتختفي تلقائياً بعد تاريخ انتهائها
@@ -743,7 +770,8 @@ ar: {
   'ct.title':'تواصل معنا','ct.lead':'مكتبنا في عمّان يستقبلك بموعد مسبق.',
   'ct.address':'العنوان','ct.addressV':'عمّان، شارع مكة، مجمع النخيل التجاري، الطابق الثالث',
   'ct.phone':'الهاتف','ct.mobile':'الموبايل','ct.email':'البريد الإلكتروني','ct.hours':'ساعات العمل','ct.hoursV':'السبت إلى الخميس، من 9 صباحاً حتى 5 مساءً',
-  'ct.wa':'راسلنا على واتساب','ct.map':'موقع الشركة على الخريطة',
+  'ct.wa':'راسلنا على واتساب','ct.map':'موقع الشركة على الخريطة','ct.follow':'تابعنا',
+  'so.wa':'واتساب','so.fb':'فيسبوك','so.ig':'إنستغرام',
   'ft.rights':'جميع الحقوق محفوظة.','ft.dev':'تصميم وتطوير SalmaFX','wa.float':'راسلنا على واتساب'
 },
 en: {
@@ -816,7 +844,8 @@ en: {
   'ct.title':'Contact us','ct.lead':'Our Amman office welcomes visitors by appointment.',
   'ct.address':'Address','ct.addressV':'3rd floor, Al Nakheel Commercial Complex, Mecca Street, Amman',
   'ct.phone':'Phone','ct.mobile':'Mobile','ct.email':'Email','ct.hours':'Working hours','ct.hoursV':'Saturday to Thursday, 9 AM to 5 PM',
-  'ct.wa':'Message us on WhatsApp','ct.map':'Company location on the map',
+  'ct.wa':'Message us on WhatsApp','ct.map':'Company location on the map','ct.follow':'Follow us',
+  'so.wa':'WhatsApp','so.fb':'Facebook','so.ig':'Instagram',
   'ft.rights':'All rights reserved.','ft.dev':'Design and development: SalmaFX','wa.float':'Message us on WhatsApp'
 }
 };
@@ -903,11 +932,14 @@ function syncCountry() {
   if (!v || v === I18N[other]['f.countryDefault']) c.value = t('f.countryDefault');
 }
 function fillContacts() {
+  const MAP = { phone: 'PHONE', mobile: 'MOBILE', email: 'EMAIL', wa: 'WHATSAPP', fb: 'FACEBOOK', ig: 'INSTAGRAM' };
   $$('[data-c]').forEach(el => {
-    const k = el.dataset.c;
-    if (k === 'phone' || k === 'mobile') { el.textContent = CONFIG[k.toUpperCase()]; el.href = 'tel:' + CONFIG[k.toUpperCase()].replace(/\s/g, ''); }
-    else if (k === 'email') { el.textContent = CONFIG.EMAIL; el.href = 'mailto:' + CONFIG.EMAIL; }
-    else if (k === 'wa') { el.href = 'https://wa.me/' + CONFIG.WHATSAPP; }
+    const k = el.dataset.c, v = (CONFIG[MAP[k]] || '').trim();
+    if (!v) { (el.closest('.ct > div') || el).hidden = true; return; }
+    if (k === 'phone' || k === 'mobile') { el.textContent = v; el.href = 'tel:' + v.replace(/\s/g, ''); }
+    else if (k === 'email') { el.textContent = v; el.href = 'mailto:' + v; }
+    else if (k === 'wa') { el.href = 'https://wa.me/' + v.replace(/\D/g, ''); }
+    else { el.href = v; }
   });
 }
 

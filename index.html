@@ -187,12 +187,10 @@ footer .copy{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,
   <h2 class="sec-title">حالات نتعامل معها كثيراً</h2>
   <p class="sec-note">إذا حالتك مش مذكورة هون، اكتبها بالاستمارة وبنشوف إذا في وصفة مناسبة إلها.</p>
   <div class="cases">
-    <div class="case"><h3>الجهاز الهضمي</h3><p>قولون، انتفاخ، حموضة، إمساك، فقدان شهية.</p></div>
-    <div class="case"><h3>المفاصل والعظام</h3><p>خشونة الركبة، آلام الظهر، الروماتيزم، تشنّج العضلات.</p></div>
-    <div class="case"><h3>النوم والأعصاب</h3><p>أرق، توتر، صداع متكرر، ضغط نفسي.</p></div>
-    <div class="case"><h3>الجلد والشعر</h3><p>حبوب، إكزيما، تساقط شعر، جفاف البشرة.</p></div>
-    <div class="case"><h3>صحة المرأة</h3><p>آلام الدورة، اضطراب مواعيدها، فترة النفاس، الرضاعة.</p></div>
-    <div class="case"><h3>مناعة وبرد</h3><p>كحّة، التهاب حلق، جيوب أنفية، نزلات متكررة.</p></div>
+    <div class="case"><h3>القلب والجهاز الدوراني</h3><p>ضعف عضلة القلب، الوذمة (تجمّع السوائل)، التعب العام والوهن، وزيادة كفاءة عضلة القلب.</p></div>
+    <div class="case"><h3>الجهاز التنفسي</h3><p>تعب النَّفَس وضيقه، ألم الصدر، الأزمة والربو.</p></div>
+    <div class="case"><h3>الجهاز التناسلي</h3><p>تأخر الحمل، وقلة أعداد الحيوانات المنوية.</p></div>
+    <div class="case"><h3>الجهاز الهضمي</h3><p>الإمساك المزمن، ودهون الكبد.</p></div>
   </div>
 </div></section>
 
@@ -260,23 +258,6 @@ footer .copy{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,
       <div class="field">
         <label for="weight">الوزن تقريباً <span class="opt">(اختياري)</span></label>
         <input id="weight" name="weight" type="text" placeholder="مثال: 78 كغم">
-      </div>
-    </div>
-
-    <div class="field">
-      <label>أعراض موجودة عندك <span class="opt">(اختر ما ينطبق)</span></label>
-      <div class="checks">
-        <label><input type="checkbox" name="sym" value="alam-batn"> آلام بطن / قولون</label>
-        <label><input type="checkbox" name="sym" value="hamouda"> حموضة وحرقة</label>
-        <label><input type="checkbox" name="sym" value="imsak"> إمساك</label>
-        <label><input type="checkbox" name="sym" value="mafasel"> آلام مفاصل</label>
-        <label><input type="checkbox" name="sym" value="sudaa"> صداع</label>
-        <label><input type="checkbox" name="sym" value="araq"> أرق وقلة نوم</label>
-        <label><input type="checkbox" name="sym" value="tawattur"> توتر وضيق نفس</label>
-        <label><input type="checkbox" name="sym" value="kohha"> كحّة أو التهاب حلق</label>
-        <label><input type="checkbox" name="sym" value="jild"> مشاكل جلدية</label>
-        <label><input type="checkbox" name="sym" value="shaar"> تساقط شعر</label>
-        <label><input type="checkbox" name="sym" value="taab"> تعب عام وإرهاق</label>
       </div>
     </div>
 
@@ -405,13 +386,6 @@ footer .copy{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,
 
     var g = function(id){ var el = document.getElementById(id); return el && el.value ? el.value.trim() : '-'; };
 
-    var boxes = form.querySelectorAll('input[name="sym"]:checked');
-    var syms = [];
-    for(var i=0;i<boxes.length;i++){
-      syms.push(boxes[i].parentNode.textContent.trim());
-    }
-    var symTxt = syms.length ? syms.join(' / ') : '-';
-
     var msg = 'NEW CASE - Salma Herbal' + NL + NL
       + 'Name: ' + g('name') + NL
       + 'Age: ' + g('age') + NL
@@ -419,7 +393,6 @@ footer .copy{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,
       + 'City: ' + g('city') + NL
       + 'WhatsApp: ' + g('phone') + NL
       + 'Weight: ' + g('weight') + NL + NL
-      + 'Symptoms: ' + symTxt + NL + NL
       + 'Complaint: ' + g('complaint') + NL + NL
       + 'Duration: ' + g('duration') + NL
       + 'Chronic: ' + g('chronic') + NL
